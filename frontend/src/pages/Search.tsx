@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { use, useEffect, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Item } from '../types/itemType';
 
 const Search = () => {
@@ -10,6 +10,8 @@ const Search = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -42,9 +44,9 @@ const Search = () => {
   console.log('query: ', query);
   console.log(results);
 
-  // search input handle function
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent page reload
+    navigate(`/search?query=${query}`); // Update URL
   };
 
   return (
@@ -53,7 +55,7 @@ const Search = () => {
         Search
       </h1>
       <form
-        action="/search"
+        onSubmit={handleSearch}
         className="bg-white p-4 rounded relative flex items-center"
       >
         <IoSearchOutline className="w-5 h-5 mr-2 text-neutral-300" />
@@ -63,6 +65,7 @@ const Search = () => {
           type="search"
           placeholder="Search for a recipe"
           id="search"
+          onChange={(e) => setQuery(e.target.value)}
           required
         />
       </form>
