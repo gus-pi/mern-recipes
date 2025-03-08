@@ -3,6 +3,7 @@ import CategoryWrapper from './CategoryWrapper';
 import { useEffect, useState } from 'react';
 import { Item } from '../../types/itemType';
 import axios from 'axios';
+import ItemCard from '../../components/ItemCard';
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -32,9 +33,13 @@ const CategoryPage = () => {
         {category}
       </h1>
       <CategoryWrapper />
-      <ul>
+      <ul className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {items &&
-          items.map((item: Item) => <li key={item._id}>{item.name}</li>)}
+          items.map((item: Item) => (
+            <li key={item._id}>
+              <ItemCard item={item} key={item._id} />
+            </li>
+          ))}
       </ul>
     </div>
   );
