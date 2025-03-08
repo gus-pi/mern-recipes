@@ -18,3 +18,13 @@ export const getSearchedItems = async (req, res) => {
     res.status(500).json({ message: 'Error searching items' });
   }
 };
+
+export const getSingleItem = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const item = await Item.findById(id);
+    res.status(200).json(item);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching item' });
+  }
+};
