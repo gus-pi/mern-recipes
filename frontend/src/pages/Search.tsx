@@ -74,8 +74,11 @@ const Search = () => {
         </button>
       </form>
       <ul>
-        {results &&
-          results.map((item: Item) => <li key={item._id}>{item.name}</li>)}
+        {results.length ? (
+          results.map((item: Item) => <li key={item._id}>{item.name}</li>)
+        ) : (
+          <span>No results</span>
+        )}
       </ul>
     </div>
   );
