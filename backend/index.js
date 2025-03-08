@@ -1,4 +1,5 @@
 import itemRoutes from './src/routes/itemRoutes.js';
+import categoryRoutes from './src/routes/categoryRoutes.js';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -25,6 +26,7 @@ main()
 
 //routes
 app.use('/api/items', itemRoutes);
+app.use('/api/categories', categoryRoutes);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
