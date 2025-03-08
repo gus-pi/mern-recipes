@@ -5,8 +5,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Item } from '../types/itemType';
 
 const Search = () => {
-  const searchText = useParams();
   const [query, setQuery] = useState('');
+  const [inputQuery, setInputQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,7 +19,7 @@ const Search = () => {
     if (queryParams) {
       setQuery(queryParams);
     }
-  }, [query]);
+  }, [location.search]);
 
   const fetchItems = async () => {
     setLoading(true);
@@ -41,12 +41,11 @@ const Search = () => {
   useEffect(() => {
     fetchItems();
   }, [query]);
-  console.log('query: ', query);
-  console.log(results);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent page reload
-    navigate(`/search?query=${query}`); // Update URL
+    setQuery(inputQuery);
+    navigate(`/search?query=${inputQuery}`); // Update URL
   };
 
   return (
@@ -65,9 +64,14 @@ const Search = () => {
           type="search"
           placeholder="Search for a recipe"
           id="search"
-          onChange={(e) => setQuery(e.target.value)}
-          required
+          onChange={(e) => setInputQuery(e.target.value)}
         />
+        <button
+          type="submit"
+          className="ml-2 px-4 py-2 bg-red-300 text-white rounded cursor-pointer"
+        >
+          Search
+        </button>
       </form>
       <ul>
         {results &&
