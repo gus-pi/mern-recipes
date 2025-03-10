@@ -32,7 +32,7 @@ const LatestRecipe = () => {
 
       <div className="sm:w-64 mx-auto mt-16">
         <Link to={'/recipes'}>
-          <button className="py-4 px-8 hover:bg-btnColor text-secondary hover:text-white w-full transition ease-in duration-200 text-center text-base font-semibold border border-[#9c702a] focus:outline-none rounded-lg">
+          <button className="py-4 px-8 bg-[#9c702a] text-white hover:text-gray-600 w-full transition ease-in duration-200 text-center text-base font-semibold border border-[#9c702a] focus:outline-none rounded-lg">
             View All Recipes
           </button>
         </Link>

@@ -1,7 +1,10 @@
 import Hero from '../../components/Hero';
 import CategoryWrapper from '../category/CategoryWrapper';
+import { AboutSection } from './AboutSection';
 import FeaturedSection from './FeaturedSection';
 import LatestRecipe from './LatestRecipe';
+import { NewsLetter } from './Newsletter';
+import { Sponsor } from './Sponsor';
 
 const Home = () => {
   return (
@@ -12,6 +15,9 @@ const Home = () => {
       </div>
       <FeaturedSection />
       <LatestRecipe />
+      <NewsLetter />
+      <AboutSection />
+      {/* <Sponsor /> */}
     </div>
   );
 };
