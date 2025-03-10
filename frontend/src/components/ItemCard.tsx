@@ -1,8 +1,20 @@
 import { Link } from 'react-router-dom';
 import { Item } from '../types/itemType';
+import { GoClock } from 'react-icons/go';
+
+type Category =
+  | 'Entrees'
+  | 'Breakfast'
+  | 'Lunch'
+  | 'Desserts'
+  | 'Sides'
+  | 'Drinks';
 
 const ItemCard = ({ item }: { item: Item }) => {
-  const categoryStyles = {
+  const categoryStyles: Record<
+    Category | 'default',
+    { backgroundColor: string; color: string }
+  > = {
     Entrees: { backgroundColor: '#f0f5c4', color: '#59871f' },
     Breakfast: { backgroundColor: '#efedfa', color: '#3c3a8f' },
     Lunch: { backgroundColor: '#e5f7f3', color: '#1f8787' },
@@ -13,7 +25,7 @@ const ItemCard = ({ item }: { item: Item }) => {
   };
 
   const getCategoryStyle = (category: string) => {
-    return categoryStyles[category] || categoryStyles.default;
+    return categoryStyles[category as Category] || categoryStyles.default;
   };
 
   const categoryStyle = getCategoryStyle(item.category);
@@ -34,7 +46,7 @@ const ItemCard = ({ item }: { item: Item }) => {
               </h1>
             </Link>
             {/* category and reading time */}
-            <div>
+            <div className="flex justify-between items-center flex-wrap">
               <button
                 className={`mt-6 py-2 px-4 font-medium rounded-lg shadow-md hover:shadow-lg transition duration-300`}
                 style={{
@@ -44,7 +56,14 @@ const ItemCard = ({ item }: { item: Item }) => {
               >
                 {item.category}
               </button>
+              <div className="flex items-center py-2 mt-6">
+                <GoClock />
+                <span className="ml-1">{item.more.prep_time}</span>
+              </div>
             </div>
+          </div>
+          <div className="absolute top-2 right-2 py-2 px-4 bg-white rounded-lg">
+            <span className="font-medium">{item.more.difficulty}</span>
           </div>
         </div>
       </div>

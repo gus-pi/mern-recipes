@@ -5,4 +5,11 @@ export type Item = {
     thumbnail_image: string,
     category: string,
     instructions: string,
+    more: {
+        prep_time: string,
+        cook_time: string,
+        servings: number,
+        difficulty: string,
+        source: string
+    }
 }
