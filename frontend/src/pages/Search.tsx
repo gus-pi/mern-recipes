@@ -3,6 +3,7 @@ import { use, useEffect, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Item } from '../types/itemType';
+import ItemCard from '../components/ItemCard';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -73,9 +74,16 @@ const Search = () => {
           Search
         </button>
       </form>
-      <ul>
+      {loading && <div>Loading...</div>}
+      {error && <div>Error fetching data</div>}
+
+      <ul className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {results.length ? (
-          results.map((item: Item) => <li key={item._id}>{item.name}</li>)
+          results.map((item: Item) => (
+            <li key={item._id}>
+              <ItemCard item={item} />
+            </li>
+          ))
         ) : (
           <span>No results</span>
         )}
