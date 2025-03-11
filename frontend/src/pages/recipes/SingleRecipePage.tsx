@@ -24,6 +24,7 @@ const SingleRecipePage = () => {
 
   useEffect(() => {
     fetchRecipeData();
+    window.scrollTo(0, 0);
   }, [id]);
 
   if (loading) {
