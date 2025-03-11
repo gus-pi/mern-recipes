@@ -12,7 +12,9 @@ const Recipes = () => {
   const fetchItems = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5000/api/items`);
+      const response = await axios.get(
+        `https://mern-recipes-backend.vercel.app/api/items`
+      );
       setItems(response.data);
     } catch (error: any) {
       setError(error.message || 'Error fetching data');

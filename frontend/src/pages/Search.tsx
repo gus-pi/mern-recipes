@@ -26,7 +26,7 @@ const Search = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/items/search`,
+        `https://mern-recipes-backend.vercel.app/api/items/search`,
         {
           params: { query: query },
         }

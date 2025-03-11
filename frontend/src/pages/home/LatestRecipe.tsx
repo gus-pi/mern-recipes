@@ -8,7 +8,9 @@ const LatestRecipe = () => {
   const [items, setItems] = useState<Item[]>([]);
 
   const getLatestItems = async () => {
-    const response = await axios.get(`http://localhost:5000/api/items`);
+    const response = await axios.get(
+      `https://mern-recipes-backend.vercel.app/api/items`
+    );
     setItems(response.data);
   };
   useEffect(() => {

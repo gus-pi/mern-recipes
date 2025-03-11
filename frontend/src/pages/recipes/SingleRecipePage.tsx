@@ -13,7 +13,9 @@ const SingleRecipePage = () => {
     setLoading(true);
     setError(null); // Clear any previous errors
     try {
-      const response = await axios.get(`http://localhost:5000/api/items/${id}`);
+      const response = await axios.get(
+        `https://mern-recipes-backend.vercel.app/api/items/${id}`
+      );
       setItem(response.data);
     } catch (err: any) {
       setError(err.message || 'Error loading recipe');
