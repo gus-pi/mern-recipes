@@ -5,7 +5,7 @@ import MobileNavbar from './MobileNavbar';
 
 const Header = () => {
   const [hideLeft, setHideLeft] = useState('-left-[1000px]');
-  const menuItems = ['recipes', 'resources', 'about', 'contact'];
+  const menuItems = ['recipes', 'about', 'contact'];
 
   const onOpen = () => {
     setHideLeft('left-0');

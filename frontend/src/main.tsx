@@ -8,6 +8,8 @@ import CategoryPage from './pages/category/CategoryPage.tsx';
 import Search from './pages/Search.tsx';
 import SingleRecipePage from './pages/recipes/SingleRecipePage.tsx';
 import Recipes from './pages/recipes/Recipes.tsx';
+import { About } from './pages/about/About.tsx';
+import { Contact } from './pages/contact/Contact.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -18,6 +20,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/search" element={<Search />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:id" element={<SingleRecipePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
