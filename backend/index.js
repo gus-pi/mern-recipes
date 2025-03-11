@@ -14,11 +14,10 @@ app.use(cors());
 
 async function main() {
   await mongoose.connect(process.env.MONGO_URL);
-
-  app.get('/', (req, res) => {
-    res.send('Veggify Recipe App Server is running!');
-  });
 }
+app.get('/', (req, res) => {
+  res.send('Veggify Recipe App Server is running!');
+});
 
 main()
   .then(() => console.log('mongodb connected successfully'))
