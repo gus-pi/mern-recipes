@@ -6,6 +6,7 @@ import Home from './pages/home/Home.tsx';
 import ErrorPage from './components/ErrorPage.tsx';
 import CategoryPage from './pages/category/CategoryPage.tsx';
 import Search from './pages/Search.tsx';
+import SingleRecipePage from './pages/recipes/SingleRecipePage.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
         <Route index element={<Home />} />
         <Route path="/categories/:category" element={<CategoryPage />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/items/:id" element={<SingleRecipePage />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
