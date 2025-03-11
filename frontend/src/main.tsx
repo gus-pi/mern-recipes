@@ -15,7 +15,8 @@ createRoot(document.getElementById('root')!).render(
         <Route index element={<Home />} />
         <Route path="/categories/:category" element={<CategoryPage />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/items/:id" element={<SingleRecipePage />} />
+        <Route path="/recipes" element={<SingleRecipePage />} />
+        <Route path="/recipes/:id" element={<SingleRecipePage />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
