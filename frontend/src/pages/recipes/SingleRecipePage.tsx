@@ -6,7 +6,7 @@ import axios from 'axios';
 const SingleRecipePage = () => {
   const { id } = useParams();
   const [item, setItem] = useState<Item>();
-  const [loading, setLoading] = useState(true); // Start with loading true
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchRecipeData = async () => {
