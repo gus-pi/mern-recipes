@@ -27,12 +27,17 @@ const Recipes = () => {
     fetchItems();
   }, []);
 
+  if (error) {
+    return <p>Error: {error}</p>; // Display error message
+  }
+
   return (
     <div className="px-6 lg:px-12 py-20">
       <h1 className="text-3xl mb-8 font-semibold text-secondary sm:text-5xl sm:leading-relaxed">
         All Recipes
       </h1>
       <CategoryWrapper />
+      {loading && <p>Loading...</p>}
       <ul className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {items.length ? (
           items.map((item: Item) => (

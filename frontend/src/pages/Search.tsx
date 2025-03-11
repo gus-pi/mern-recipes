@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Item } from '../types/itemType';
 import ItemCard from '../components/ItemCard';
 
